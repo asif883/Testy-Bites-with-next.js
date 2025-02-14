@@ -51,7 +51,7 @@ const NavBar = () => {
                         <><Link href='/blog' className=''>Blog</Link></>
                     </ul>
                     </div>
-                    <a className="btn btn-ghost text-2xl lg:text-4xl font-barlow">Testy-Bites</a>
+                    <Link href='/' className="font-semibold text-2xl lg:text-4xl font-barlow hover:text-[#FFD71B]">Testy-Bites</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 text-xl font-barlow">
