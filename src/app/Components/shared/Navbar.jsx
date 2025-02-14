@@ -1,10 +1,25 @@
+"use client"
 import Link from 'next/link';
 import React from 'react';
 import { FaSearch } from "react-icons/fa";
 import { TiShoppingCart } from "react-icons/ti";
 
+import { usePathname } from 'next/navigation';
+
 
 const NavBar = () => {
+
+    const pathname = usePathname();
+
+    const navLinks = [
+      { href: "/", label: "Home" },
+      { href: "/reservation", label: "Reservation" },
+      { href: "/menu", label: "Menu" },
+      { href: "/order-online", label: "Order Online" },
+      { href: "/about", label: "About Us" },
+      { href: "/blog", label: "Blog" },
+    ];
+
     return (
         <div className="w-full fixed z-10 bg-black bg-opacity-60  text-white ">
            <div className='navbar max-w-7xl mx-auto'>
@@ -26,7 +41,7 @@ const NavBar = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                        className="menu menu-sm dropdown-content rounded-box z-[1] mt-3 w-52 p-2 shadow font-barlow">
                         <><Link href='/' className='mb-1'>Home</Link></>
                         <><Link href='/reservation' className='mb-1'>Reservation</Link></>
                         <><Link href='/menu' className='mb-1'>Menu</Link></>
@@ -36,17 +51,19 @@ const NavBar = () => {
                         <><Link href='/blog' className=''>Blog</Link></>
                     </ul>
                     </div>
-                    <a className="btn btn-ghost text-2xl lg:text-4xl">Testy-Bites</a>
+                    <a className="btn btn-ghost text-2xl lg:text-4xl font-barlow">Testy-Bites</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1 text-xl">
-                        <><Link href='/' className='mr-5 hover:text-[#FFD71B]'>Home</Link></>
-                        <><Link href='/reservation' className='mr-5 hover:text-[#FFD71B]'>Reservation</Link></>
-                        <><Link href='/menu' className='mr-5 hover:text-[#FFD71B]'>Menu</Link></>
-                        <><Link href='/order-online' className='mr-5 hover:text-[#FFD71B]'>Order Online</Link></>
-  
-                        <><Link href='/about' className='mr-5 hover:text-[#FFD71B]'>About us</Link></>
-                        <><Link href='/blog' className='hover:text-[#FFD71B]'>Blog</Link></>
+                    <ul className="menu menu-horizontal px-1 text-xl font-barlow">
+                       {navLinks.map(({ href, label }) => (
+                            <Link
+                                key={href}
+                                href={href}
+                                className={`px-4 py-2 ${pathname === href ? "text-[#FFD71B]" : "text-white"} hover:text-[#FFD71B]`}
+                                >
+                                {label}
+                             </Link>
+                            ))}
                     </ul>
                 </div>
                 <div className="navbar-end pr-2">
