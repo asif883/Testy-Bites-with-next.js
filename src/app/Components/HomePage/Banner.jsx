@@ -59,7 +59,7 @@ const Banner = () => {
             >
               <h1 className="text-2xl lg:text-5xl font-semibold font-barlow">{slide.title}</h1>
               <p className="mt-4 text-gray-200 text-lg lg:max-w-xl">{slide.description}</p>
-              <button className="mt-6 px-6 py-2 bg-[#FFD71B] text-gray-900 uppercase font-medium">
+              <button className="mt-6 px-6 py-2 bg-[#FFD71B] text-gray-900 uppercase font-medium hover:bg-gray-900 hover:text-gray-100">
                 Purchase
               </button>
             </motion.div>
