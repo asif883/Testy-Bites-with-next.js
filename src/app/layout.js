@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Testy-Bites",
   description: "Best restaurant for delicious food",
-  icons: "/assets/logo.png" 
+  icons: "/logo.png" 
 };
 
 export default function RootLayout({ children }) {
