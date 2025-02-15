@@ -14,7 +14,7 @@ const page = () => {
           className="w-full h-full object-cover rounded-lg shadow-md"
         />
         <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <h1 className="text-2xl md:text-5xl font-barlow font-bold mb-6 uppercase text-gray-100">
+          <h1 className="text-2xl md:text-4xl font-barlow font-bold mb-6 uppercase text-gray-100">
               Discover the Story Behind Testy Bites
           </h1>
         </div>
