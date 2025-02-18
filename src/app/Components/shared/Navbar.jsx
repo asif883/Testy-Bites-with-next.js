@@ -74,7 +74,8 @@ const NavBar = () => {
                     <div className='ml-2'>        
                         <div className="indicator">
                             <span className="indicator-item bg-[#FFD71B] rounded-badge text-black px-1">0</span>
-                            <Link href='/dashboard' className=""><TiShoppingCart size={32}/></Link>
+                            {/* /dashboard/cart */}
+                            <Link href='#' className=""><TiShoppingCart size={32}/></Link>
                         </div>
                     </div>
                 </div>

@@ -8,6 +8,7 @@ import { MdOutlineManageAccounts } from "react-icons/md";
 import { CiLogout } from "react-icons/ci";
 import { BsPersonAdd } from "react-icons/bs";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 
 
@@ -52,18 +53,19 @@ const Routes = [
 ];
 
 const Sidebar = () => {
-   
+   const pathname = usePathname()
+
   return (
     <div className="p-4">
       <div className="text-center border-b border-gray-300 pb-4">
-        <Link href='/' className="text-center text-3xl font-bold text-[#324560] flex gap-1 items-center">
+        <Link href='/' className="text-center text-3xl font-bold text-[#324560] flex gap-1 items-center justify-center hover:text-gray-400">
           Testy - Bites
         </Link>
       </div>
       <div className="py-6 space-y-3">
         {Routes.map((route) => (
           <Link href={route.link}
-            className="flex items-center gap-2 text-[#444546] font-semibold border border-gray-300 rounded-xl px-5 py-2"
+            className={`flex items-center gap-2 text-[#444546] font-semibold border border-gray-300 rounded-xl px-5 py-2 ${pathname === route?.link ? 'bg-gray-800 text-white' : ''}`}
            
             key={route.id}
           >
