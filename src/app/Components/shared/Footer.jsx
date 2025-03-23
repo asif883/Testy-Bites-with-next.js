@@ -3,6 +3,32 @@ import React from "react";
 import { MdEmail } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoCallSharp } from "react-icons/io5";
+import Link from "next/link";
+
+const postData =
+[
+  {
+    "id": 1,
+    "title": "The Secret to Perfect Pasta"
+  },
+  {
+    "id": 2,
+    "title": "Top 5 Spiciest Dishes in the World"
+  },
+  {
+    "id": 3,
+    "title": "Healthy Breakfast Ideas for a Fresh Start"
+  },
+  {
+    "id": 4,
+    "title": "Mastering the Art of Sushi Making"
+  },
+  {
+    "id": 5,
+    "title": "Best Street Foods Around the World"
+  }
+]
+
 
 const Footer = () => {
   return (
@@ -31,6 +57,11 @@ const Footer = () => {
           <h1 className="text-xl font-semibold font-barlow uppercase border-b pb-1 border-gray-400">
             Recent Posts
           </h1>
+          {
+            postData.map((post) => <div className="my-3" key={post?.id}>
+              <Link href={'/blog'} className="hover:underline text-gray-400">{post?.title}</Link>
+            </div>)
+          }
         </div>
 
         {/* About Us */}
