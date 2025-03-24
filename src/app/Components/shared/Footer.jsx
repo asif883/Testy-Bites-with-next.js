@@ -27,6 +27,52 @@ const postData =
     "id": 5,
     "title": "Best Street Foods Around the World"
   }
+];
+
+const aboutData =  [
+  {
+    "id": 1,
+    "title": "Our Team"
+  },
+  {
+    "id": 2,
+    "title": "Our Mission"
+  },
+  {
+    "id": 3,
+    "title": "Dine-In & Online"
+  },
+  {
+    "id": 4,
+    "title": "Quality & Freshness"
+  },
+  {
+    "id": 5,
+    "title": "Customer Satisfaction"
+  },
+  {
+    "id": 6,
+    "title": "Community & Sustainability"
+  }
+];
+
+const termsConditionData= [
+  {
+    "id": 1,
+    "title": "Delivery & Pickup"
+  },
+  {
+    "id": 2,
+    "title": "Acceptance of Terms"
+  },
+  {
+    "id": 3,
+    "title": "Ordering & Payments"
+  },
+  {
+    "id": 4,
+    "title": "Cancellations & Refunds"
+  }
 ]
 
 
@@ -58,7 +104,7 @@ const Footer = () => {
             Recent Posts
           </h1>
           {
-            postData.map((post) => <div className="my-3" key={post?.id}>
+            postData?.map((post) => <div className="my-3" key={post?.id}>
               <Link href={'/blog'} className="hover:underline text-gray-400">{post?.title}</Link>
             </div>)
           }
@@ -70,12 +116,15 @@ const Footer = () => {
             About Us
           </h1>
           <ul className="space-y-3 mt-3 font-semibold text-gray-400">
-            <li>Our Team</li>
-            <li>Our Mission</li>
-            <li>Dine-In & Online</li>
-            <li>Quality & Freshness</li>
-            <li>Customer Satisfaction</li>
-            <li>Community & Sustainability</li>
+            {
+              aboutData?.map((data) => 
+               <li key={data?.id}>
+                 <Link href={'#'} className="hover:underline">
+                  {data?.title}
+              </Link>
+               </li> 
+             )
+            }
           </ul>
         </div>
 
@@ -85,10 +134,15 @@ const Footer = () => {
             Terms & Conditions
           </h1>
           <ul className="space-y-3 mt-3 font-semibold text-gray-400">
-            <li>Delivery & Pickup</li>
-            <li>Acceptance of Terms</li>
-            <li>Ordering & Payments</li>
-            <li>Cancellations & Refunds</li>
+          {
+              termsConditionData?.map((data) => 
+               <li key={data?.id}>
+                 <Link href={'#'} className="hover:underline">
+                  {data?.title}
+              </Link>
+               </li> 
+             )
+            }
           </ul>
         </div>
       </div>
