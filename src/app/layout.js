@@ -1,6 +1,4 @@
 import "./globals.css";
-import NavBar from "./Components/shared/Navbar";
-import Footer from "./Components/shared/Footer";
 import ClientWrapper from "./Components/ClientWrapper";
 
 
@@ -9,7 +7,7 @@ import ClientWrapper from "./Components/ClientWrapper";
 export const metadata = {
   title: "Testy Bites - Delicious Meals",
   description: "Order the best food from Testy Bites!",
-  icons:"./logo.png"
+  icons:"./logo.tbr.png"
 };
 
 export default function RootLayout({ children }) {
