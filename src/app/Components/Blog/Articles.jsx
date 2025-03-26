@@ -3,7 +3,11 @@ import React from 'react';
 import { SlNote } from "react-icons/sl";
 import { FaRegHeart } from "react-icons/fa6";
 import { IoPricetagOutline } from "react-icons/io5";
+import { IoIosArrowForward } from "react-icons/io";
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter, FaYoutube } from 'react-icons/fa';
+
+import '../../Css/font.css'
+import Link from 'next/link';
 
 const blogData =
 [
@@ -58,45 +62,63 @@ const blogData =
 const Articles = () => {
     return (
         <div className='px-5 mt-10 max-w-7xl mx-auto'>
-            <div className=''>
-                {
-                    blogData.map((data, idx) =><div className='mb-12' key={idx}>
-                        <img className='w-[900px] h-[500px] object-cover' src={data?.image} alt="" />
-                        <h1 className='mt-3 mb-2 text-3xl font-semibold'>{data?.title}</h1>
-                        <div className='flex gap-6 font-medium'>
-                            <p className='flex items-center gap-2'>
-                                <span>
-                                    <SlNote/>
-                                </span>
-                                {data?.name}
-                            </p>
-                            <p className='flex items-center gap-2'>
-                                <span>
-                                    <FaRegHeart/>
-                                </span>
-                                {data?.likes}
-                            </p>
-                            <p className='flex items-center gap-2'>
-                                <span>
-                                    <IoPricetagOutline/>
-                                </span>
-                                {data?.category}
-                            </p>
-                        </div>
-                        <p className='text-gray-600 max-w-4xl mt-3 border-b-2 border-dotted border-gray-900 pb-7'>{data?.description.slice( 0, 300 )}........<a href='#' className='text-blue-500'>read more</a></p> 
-                        <div className='mt-8  flex items-center'>
-                            <p className='text-gray-900 text-xl font-medium mr-3'>Share</p>
-                            <div className='flex gap-2'>
-                                <FaFacebook size={22}/>
-                                <FaInstagram size={22}/>
-                                <FaYoutube size={22}/>
-                                <FaTwitter size={22}/>
-                                <FaLinkedin size={22}/>
+            <div className='grid grid-cols-12'>
+                <div className='col-span-8'>
+                    {
+                        blogData.map((data, idx) =><div className='mb-12' key={idx}>
+                            <img className='w-[900px] h-[500px] object-cover' src={data?.image} alt="" />
+                            <h1 className='mt-3 mb-2 text-3xl font-semibold'>{data?.title}</h1>
+                            <div className='flex gap-6 font-medium'>
+                                <p className='flex items-center gap-2'>
+                                    <span>
+                                        <SlNote/>
+                                    </span>
+                                    {data?.name}
+                                </p>
+                                <p className='flex items-center gap-2'>
+                                    <span>
+                                        <FaRegHeart/>
+                                    </span>
+                                    {data?.likes}
+                                </p>
+                                <p className='flex items-center gap-2'>
+                                    <span>
+                                        <IoPricetagOutline/>
+                                    </span>
+                                    {data?.category}
+                                </p>
                             </div>
-                        </div>
-                    </div>)
-                }
-                
+                            <p className='text-gray-600 max-w-4xl mt-3 border-b-2 border-dotted border-gray-900 pb-7'>{data?.description.slice( 0, 300 )}........<a href='#' className='text-blue-500'>read more</a></p> 
+                            <div className='mt-8  flex items-center'>
+                                <p className='text-gray-900 text-xl font-medium mr-3'>Share</p>
+                                <div className='flex gap-2'>
+                                    <FaFacebook size={22}/>
+                                    <FaInstagram size={22}/>
+                                    <FaYoutube size={22}/>
+                                    <FaTwitter size={22}/>
+                                    <FaLinkedin size={22}/>
+                                </div>
+                            </div>
+                        </div>)
+                    }
+                    
+                </div>
+
+                <div className='col-span-4 ml-10'>
+                    <p className='text-2xl font-semibold font-barlow uppercase'>Recent Article</p>
+                    <ul className="space-y-3 mt-5 text-gray-600">
+                        {
+                        blogData?.map((data) => 
+                        <li className='border-b border-gray-200 pb-2' key={data?.id}>
+                            <Link href={'#'} className="hover:underline flex gap-2 items-center ">
+                            <IoIosArrowForward/>
+                            {data?.title}
+                            </Link>
+                        </li> 
+                        )
+                        }
+                    </ul>
+                </div>
             </div>
         </div>
     );
